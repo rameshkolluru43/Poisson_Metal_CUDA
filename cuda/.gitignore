@@ -1,0 +1,52 @@
+# Build directories
+build/
+bin/
+lib/
+
+# Object files
+*.o
+*.obj
+*.cubin
+*.fatbin
+*.ptx
+
+# Libraries
+*.lib
+*.a
+*.so
+*.dylib
+*.dll
+
+# Executables
+*.exe
+*.out
+test_cuda_solver
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile.cmake
+*.cmake
+!CMakeLists.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Profiling
+*.nvvp
+*.qdrep
+*.prof
+
+# Nsight
+*.nsys-rep
+*.ncu-rep
+
+# Temporary files
+*.tmp
+*.bak
+*.log

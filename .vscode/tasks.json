@@ -1,0 +1,29 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build performance report (grouped results)",
+			"type": "shell",
+			"command": "bash docs/build_performance_report.sh",
+			"args": []
+		},
+		{
+			"label": "Rebuild performance report after fix",
+			"type": "shell",
+			"command": "bash docs/build_performance_report.sh",
+			"args": []
+		},
+		{
+			"label": "Rebuild performance report (patch 2)",
+			"type": "shell",
+			"command": "bash docs/build_performance_report.sh",
+			"args": []
+		},
+		{
+			"label": "Rebuild performance report (patch 3)",
+			"type": "shell",
+			"command": "bash docs/build_performance_report.sh",
+			"args": []
+		}
+	]
+}

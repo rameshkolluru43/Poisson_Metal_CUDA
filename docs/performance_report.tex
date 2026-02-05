@@ -1,0 +1,123 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{pgfplotstable}
+\usepackage{csvsimple}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{ifthen}
+\usepackage{hyperref}
+\graphicspath{{../}}
+\pgfplotsset{compat=1.18}
+
+\title{LaplaceMetalSolver: Solutions, Timings, and Performance}
+\author{Generated on \today}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Solution Snapshots}
+Representative solution fields produced by the solver. Each heatmap corresponds to the CSV matrix of the same basename in the repository root.
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \IfFileExists{../solution_mg.png}{\includegraphics[width=\linewidth]{solution_mg.png}}{\fbox{solution\_mg.png not found}}
+    \caption{Multigrid default BCs}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \IfFileExists{../solution_mg_four_boundaries.png}{\includegraphics[width=\linewidth]{solution_mg_four_boundaries.png}}{\fbox{solution\_mg\_four\_boundaries.png not found}}
+    \caption{Multigrid four-boundary BCs}
+  \end{subfigure}
+  
+  \vspace{1em}
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \IfFileExists{../solution_lid_potential.png}{\includegraphics[width=\linewidth]{solution_lid_potential.png}}{\fbox{solution\_lid\_potential.png not found}}
+    \caption{Lid-driven cavity (Dirichlet Laplace)}
+  \end{subfigure}\hfill
+  \begin{subfigure}[b]{0.48\textwidth}
+    \centering
+    \IfFileExists{../solution_rbgs_257x257.png}{\includegraphics[width=\linewidth]{solution_rbgs_257x257.png}}{\fbox{solution\_rbgs\_257x257.png not found}}
+    \caption{Single-level RBGS (257x257)}
+  \end{subfigure}
+  \caption{Selected solution heatmaps. 3D surface variants (e.g., \texttt{*\_3d.png}) are also available.}
+\end{figure}
+
+\clearpage
+\section{All Results}
+This section includes all available solution figures discovered in the project root that match \texttt{solution\_*.png} and manufactured-solution plots matching \texttt{mf\_*.png}. If new runs generate additional images, re-run the build script to refresh this section.
+
+% Auto-generated figure grid (do not edit by hand)
+\input{generated_figures.tex}
+
+\clearpage
+\section{Residuals}
+This section summarizes solver convergence across problem sizes and boundary conditions. Plots are auto-generated from files matching \texttt{residual\_history\_*.csv}.
+
+\subsection{Convergence Curves}
+\begin{figure}[ht]
+  \centering
+  % The following includes any PNGs produced by docs/plot_residuals.sh
+  % Relative residual plots
+  \IfFileExists{residuals/residual_history_default_rel.png}{\includegraphics[width=0.48\linewidth]{residuals/residual_history_default_rel.png}}{}
+  \IfFileExists{residuals/residual_history_four_boundaries_rel.png}{\includegraphics[width=0.48\linewidth]{residuals/residual_history_four_boundaries_rel.png}}{}
+  \caption{Examples of relative residual decay (more plots included in the gallery below).}
+\end{figure}
+
+% Auto-generated residuals gallery (optional):
+\input{residuals/generated_residual_figures.tex}
+
+\subsection{Summary}
+\IfFileExists{residuals/summary.txt}{\verbatiminput{residuals/summary.txt}}{No residual summary available.}
+
+\clearpage
+\section{Grouped Results by Problem}
+For each case and grid size, we present the solution alongside its residual convergence plots for easier comparison.
+
+% Auto-generated grouped results (solution + residuals)
+\input{grouped_results.tex}
+
+\clearpage
+\section{Timings and Performance}
+This section tabulates the solver performance as recorded by the demo harness. Times are wall-clock in milliseconds measured on the current machine.
+
+\subsection{Multigrid Benchmarks}
+The benchmark harness in \texttt{main\_laplace\_demo.cpp} writes a CSV \texttt{timings.csv}. The table below is loaded directly from that file at build time.
+
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  columns={label,nx,ny,max_vcycles,tol,nu1,nu2,coarse_iters,force,ok,time_ms},
+  columns/label/.style={string type,column name=label},
+  columns/max_vcycles/.style={column name=Max vcycles},
+  columns/coarse_iters/.style={column name=Coarse iters},
+  columns/time_ms/.style={column name=Time ms},
+  every head row/.style={before row=\toprule, after row=\midrule},
+  every last row/.style={after row=\bottomrule},
+]{../timings.csv}
+
+\subsection{Manufactured Poisson Suite}
+The manufactured-solution runs (Dirichlet Poisson) are recorded in \texttt{manufactured\_timings.csv}. The table below is loaded directly from that file at build time.
+
+\pgfplotstabletypeset[
+  col sep=comma,
+  string type,
+  columns={case,nx,ny,iters,residual,time_ms},
+  columns/case/.style={string type,column name=case},
+  columns/time_ms/.style={column name=Time ms},
+  every head row/.style={before row=\toprule, after row=\midrule},
+  every last row/.style={after row=\bottomrule},
+]{../manufactured_timings.csv}
+
+\paragraph{Notes.}
+Residuals are computed as $\lVert f - A u \rVert_2$ for Poisson cases; for Laplace-only cases, runs use homogeneous RHS and enforce Dirichlet boundary conditions.
+
+\end{document}

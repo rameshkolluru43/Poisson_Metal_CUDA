@@ -1,0 +1,32 @@
+\doxysection{Laplace\+Metal\+Solver\+Internal.\+hpp}
+\hypertarget{_laplace_metal_solver_internal_8hpp_source}{}\label{_laplace_metal_solver_internal_8hpp_source}\index{metal/LaplaceMetalSolverInternal.hpp@{metal/LaplaceMetalSolverInternal.hpp}}
+\mbox{\hyperlink{_laplace_metal_solver_internal_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Shared\ internal\ definitions\ for\ LaplaceMetalSolver\ implementation}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#import\ <Metal/Metal.h>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_uniforms_c_p_u}{UniformsCPU}}}
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_uniforms_c_p_u_ac3c7e23f9786cf54e998f3d3d6f59e7c}{nx}},\ \mbox{\hyperlink{struct_uniforms_c_p_u_a71762bb66a740a5b11215af80026d85c}{ny}};}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_uniforms_c_p_u_afd231cc2258be5b084dea1289d05bdba}{inv\_dx2}},\ \mbox{\hyperlink{struct_uniforms_c_p_u_a4925d1818b649ef32ec656ba8cdeafe1}{inv\_dy2}},\ \mbox{\hyperlink{struct_uniforms_c_p_u_ae74008108ab22cf23c92e59011a506fa}{inv\_coef}},\ \mbox{\hyperlink{struct_uniforms_c_p_u_ac172b8cf952d68017125a552d1f8df7f}{omega}};}
+\DoxyCodeLine{00009\ \};}
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_grid_dims}{GridDims}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_grid_dims_a00138462b9e82ae9040d8d85f822fa08}{nx\_f}},\ \mbox{\hyperlink{struct_grid_dims_a66c4021a063735e8b46094dea52b6fe7}{ny\_f}},\ \mbox{\hyperlink{struct_grid_dims_a622160a59d6de7d1d483946fadaa6d1b}{nx\_c}},\ \mbox{\hyperlink{struct_grid_dims_a9a548ca2262862970fb8418f8d9a869c}{ny\_c}};}
+\DoxyCodeLine{00013\ \};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ MTLSize\ chooseThreadgroup2D(id<MTLComputePipelineState>\ pso,\ uint32\_t\ nx,\ uint32\_t\ ny)}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (!pso)}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ MTLSizeMake(16,\ 16,\ 1);}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{const}\ NSUInteger\ simdWidth\ =\ pso.threadExecutionWidth;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{const}\ NSUInteger\ maxThreads\ =\ pso.maxTotalThreadsPerThreadgroup;}
+\DoxyCodeLine{00021\ \ \ \ \ NSUInteger\ bx\ =\ simdWidth;}
+\DoxyCodeLine{00022\ \ \ \ \ NSUInteger\ by\ =\ std::min(maxThreads\ /\ bx,\ NSUInteger(16));}
+\DoxyCodeLine{00023\ \ \ \ \ bx\ =\ std::min(bx,\ NSUInteger(nx));}
+\DoxyCodeLine{00024\ \ \ \ \ by\ =\ std::min(by,\ NSUInteger(ny));}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordflow}{return}\ MTLSizeMake(bx,\ by,\ 1);}
+\DoxyCodeLine{00026\ \}}
+
+\end{DoxyCode}

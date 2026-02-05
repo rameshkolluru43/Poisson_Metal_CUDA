@@ -1,0 +1,45 @@
+\doxysection{metal/\+Laplace\+Metal\+Solver.mm File Reference}
+\hypertarget{_laplace_metal_solver_8mm}{}\label{_laplace_metal_solver_8mm}\index{metal/LaplaceMetalSolver.mm@{metal/LaplaceMetalSolver.mm}}
+{\ttfamily import $<$Metal/\+Metal.\+h$>$}\newline
+{\ttfamily import $<$Foundation/\+Foundation.\+h$>$}\newline
+{\ttfamily \#include "{}Laplace\+Metal\+Solver.\+hpp"{}}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+Include dependency graph for Laplace\+Metal\+Solver.\+mm\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_laplace_metal_solver_8mm__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_laplace_metal_solver_8mm_a4fbef198eedb1e0148bf93373a043d91}{CREATE\+\_\+\+PIPELINE}}(name,  kernel\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_laplace_metal_solver_8mm_a4fbef198eedb1e0148bf93373a043d91}\index{LaplaceMetalSolver.mm@{LaplaceMetalSolver.mm}!CREATE\_PIPELINE@{CREATE\_PIPELINE}}
+\index{CREATE\_PIPELINE@{CREATE\_PIPELINE}!LaplaceMetalSolver.mm@{LaplaceMetalSolver.mm}}
+\doxysubsubsection{\texorpdfstring{CREATE\_PIPELINE}{CREATE\_PIPELINE}}
+{\footnotesize\ttfamily \label{_laplace_metal_solver_8mm_a4fbef198eedb1e0148bf93373a043d91} 
+\#define CREATE\+\_\+\+PIPELINE(\begin{DoxyParamCaption}\item[{}]{name}{, }\item[{}]{kernel\+Name}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ id<MTLFunction>\ func\ =\ [lib\ newFunctionWithName:@\#kernelName];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (!func)\ \{\ err\ =\ \textcolor{stringliteral}{"{}Function\ '"{}}\ \#kernelName\ \textcolor{stringliteral}{"{}'\ not\ found"{}};\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ id<MTLComputePipelineState>\ pso\ =\ [dev\ newComputePipelineStateWithFunction:func\ error:\&error];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ if\ (error\ ||\ !pso)\ \{\ err\ =\ error\ ?\ std::string([[error\ localizedDescription]\ UTF8String])\ :\ \textcolor{stringliteral}{"{}Pipeline\ creation\ failed\ for\ "{}}\ \#kernelName;\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};\ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ name\ =\ (\_\_bridge\_retained\ \textcolor{keywordtype}{void}*)pso;\ \(\backslash\)}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{while}(0)}
+
+\end{DoxyCode}

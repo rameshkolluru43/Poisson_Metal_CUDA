@@ -1,0 +1,11 @@
+<map id="test_laplace_solver_four_boundaries" name="test_laplace_solver_four_boundaries">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,104,139,145"/>
+<area shape="rect" id="Node000002" href="$class_laplace_metal_solver.html#a8187789c5ab0d5f6b4b1fa4045f1e9e3" title=" " alt="" coords="187,5,322,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,101,185,57,196,51,198,56,188,61,110,106"/>
+<area shape="rect" id="Node000003" href="$class_laplace_metal_solver.html#a108bc9a6da4161b3475a0e18c7536b62" title=" " alt="" coords="187,71,322,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="139,109,171,104,172,109,140,115"/>
+<area shape="rect" id="Node000004" href="$class_laplace_metal_solver.html#aa0681732a2e5e48f6ef2bdf0942f9129" title=" " alt="" coords="187,136,322,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="140,133,172,139,171,144,139,139"/>
+<area shape="rect" id="Node000005" href="$class_laplace_metal_solver.html#ab7adaffa24b5c2c3cb3bf9fe09e2f393" title=" " alt="" coords="187,201,322,242"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="111,143,188,186,198,191,196,196,185,191,108,148"/>
+</map>

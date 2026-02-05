@@ -1,0 +1,62 @@
+Residuals summary (generated Mon Sep 15 11:54:33 IST 2025)
+
+residual_history_default
+  cycles: 25 -> 2000
+  rel_residual: 0.0248235 -> 0.000152581 (improvement x162.7)
+  L2: 4583.36 -> 28.1723 (improvement x162.7)
+
+residual_history_four_boundaries
+  cycles: 25 -> 2000
+  rel_residual: 0.0260522 -> 0.000170639 (improvement x152.7)
+  L2: 26491.6 -> 173.517 (improvement x152.7)
+
+residual_history_mg_default_1025x1025
+  cycles: 25 -> 200
+  rel_residual: 0.0264364 -> 0.00547706 (improvement x4.827)
+  L2: 886625 -> 183690 (improvement x4.827)
+
+residual_history_mg_default_2049x2049
+  cycles: 25 -> 100
+  rel_residual: 0.026547 -> 0.00935954 (improvement x2.836)
+  L2: 5.03773e+06 -> 1.77612e+06 (improvement x2.836)
+
+residual_history_mg_default_4097x4097
+  cycles: 25 -> 50
+  rel_residual: 0.0266022 -> 0.0158204 (improvement x1.682)
+  L2: 2.85604e+07 -> 1.69849e+07 (improvement x1.682)
+
+residual_history_mg_default_513x513
+  cycles: 25 -> 200
+  rel_residual: 0.0262134 -> 0.0053358 (improvement x4.913)
+  L2: 155336 -> 31619.1 (improvement x4.913)
+
+residual_history_mg_default_8193x8193
+  cycles: 25 -> 50
+  rel_residual: 0.0266297 -> 0.0158439 (improvement x1.681)
+  L2: 1.61739e+08 -> 9.62301e+07 (improvement x1.681)
+
+residual_history_mg_four_boundaries_1025x1025
+  cycles: 25 -> 200
+  rel_residual: 0.0265821 -> 0.0040339 (improvement x6.59)
+  L2: 4.88634e+06 -> 741516 (improvement x6.59)
+
+residual_history_mg_four_boundaries_2049x2049
+  cycles: 25 -> 100
+  rel_residual: 0.0266196 -> 0.00736117 (improvement x3.616)
+  L2: 2.76777e+07 -> 7.65376e+06 (improvement x3.616)
+
+residual_history_mg_four_boundaries_4097x4097
+  cycles: 25 -> 50
+  rel_residual: 0.0266384 -> 0.0146145 (improvement x1.823)
+  L2: 1.56671e+08 -> 8.5954e+07 (improvement x1.823)
+
+residual_history_mg_four_boundaries_513x513
+  cycles: 25 -> 200
+  rel_residual: 0.0265068 -> 0.00396965 (improvement x6.677)
+  L2: 861515 -> 129020 (improvement x6.677)
+
+residual_history_mg_four_boundaries_8193x8193
+  cycles: 25 -> 50
+  rel_residual: 0.0266478 -> 0.014628 (improvement x1.822)
+  L2: 8.86557e+08 -> 4.86665e+08 (improvement x1.822)
+

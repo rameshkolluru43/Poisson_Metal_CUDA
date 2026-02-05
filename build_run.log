@@ -1,0 +1,105 @@
+Compiling LaplaceMetalSolver with Metal support...
+Build finished. Running solver...
+
+[Robustness Suite]
+[Laplace] const_all_1: ok
+[Laplace] left1_right0_top0_bottom0: ok
+[Laplace] left1_right2_top3_bottom4: ok
+[Laplace] checker_low_high: ok
+[Laplace] right_high_only: ok
+[Poisson] gaussian: iters=50, res=0
+[MF] SinSin_Dirichlet: 34.5236 ms, iters=50, res=1.44576e-09
+[MF] Sin3x_Sin2y_D: 36.5902 ms, iters=50, res=3.68601e-09
+[MF] PolyBubble_D: 32.555 ms, iters=50, res=0
+[MF] Exp_xy_D: 40595.8 ms, iters=60000, res=8.25903e+07
+[MF] Sinx_Ey_D: 40986.2 ms, iters=60000, res=2.30728e+07
+[MF] ConstRHS_Quadratic: 40429.2 ms, iters=60000, res=632994
+[MF] HighFreq_D: 37.4963 ms, iters=50, res=1.08683e-08
+[MF] results -> manufactured_timings.csv
+[Lid Cavity (Laplace Dirichlet)] nx=257, ny=257
+[Lid Cavity] solve returned: ok
+[MG Four Boundaries] nx=129, ny=129
+dx=0.0078125, dy=0.0078125
+inv_dx2=16384, inv_dy2=16384
+inv_coef=1.52588e-05
+[Benchmark] mg_default 513x513: 559.211 ms
+[Benchmark] mg_four_boundaries 513x513: 548.424 ms
+[Benchmark] mg_default 1025x1025: 1122.82 ms
+[Benchmark] mg_four_boundaries 1025x1025: 1164.6 ms
+[Benchmark] mg_default 2049x2049: 2055.13 ms
+[Benchmark] mg_four_boundaries 2049x2049: 2085.11 ms
+[Benchmark] mg_default 4097x4097: 4030 ms
+[Benchmark] mg_four_boundaries 4097x4097: 4049.55 ms
+[Benchmark] mg_default 8193x8193: 15105 ms
+[Benchmark] mg_four_boundaries 8193x8193: 15471 ms
+Done. Solver finished.
+Plotting solution_mg.csv with gnuplot...
+Plotted heatmap solution_mg.csv -> solution.png
+Plotted 3D surface solution_mg.csv -> solution_3d.png
+Plotted heatmap solution_mg.csv -> solution_mg.png
+Plotted 3D surface solution_mg.csv -> solution_mg_3d.png
+Plotted heatmap solution_mg_four_boundaries.csv -> solution_mg_four_boundaries.png
+Plotted 3D surface solution_mg_four_boundaries.csv -> solution_mg_four_boundaries_3d.png
+Plotted heatmap solution_lid_potential.csv -> solution_lid_potential.png
+Plotted 3D surface solution_lid_potential.csv -> solution_lid_potential_3d.png
+Plotted heatmap solution_mg.csv -> solution_mg.png
+Plotted 3D surface solution_mg.csv -> solution_mg_3d.png
+Plotted heatmap solution_mg_default_1025x1025.csv -> solution_mg_default_1025x1025.png
+Plotted 3D surface solution_mg_default_1025x1025.csv -> solution_mg_default_1025x1025_3d.png
+Plotted heatmap solution_mg_default_2049x2049_ds.csv -> solution_mg_default_2049x2049_ds.png
+Plotted 3D surface solution_mg_default_2049x2049_ds.csv -> solution_mg_default_2049x2049_ds_3d.png
+Plotted heatmap solution_mg_default_4097x4097_ds.csv -> solution_mg_default_4097x4097_ds.png
+Plotted 3D surface solution_mg_default_4097x4097_ds.csv -> solution_mg_default_4097x4097_ds_3d.png
+Plotted heatmap solution_mg_default_513x513.csv -> solution_mg_default_513x513.png
+Plotted 3D surface solution_mg_default_513x513.csv -> solution_mg_default_513x513_3d.png
+Plotted heatmap solution_mg_default_8193x8193_ds.csv -> solution_mg_default_8193x8193_ds.png
+Plotted 3D surface solution_mg_default_8193x8193_ds.csv -> solution_mg_default_8193x8193_ds_3d.png
+Plotted heatmap solution_mg_four_boundaries.csv -> solution_mg_four_boundaries.png
+Plotted 3D surface solution_mg_four_boundaries.csv -> solution_mg_four_boundaries_3d.png
+Plotted heatmap solution_mg_four_boundaries_1025x1025.csv -> solution_mg_four_boundaries_1025x1025.png
+Plotted 3D surface solution_mg_four_boundaries_1025x1025.csv -> solution_mg_four_boundaries_1025x1025_3d.png
+Plotted heatmap solution_mg_four_boundaries_2049x2049_ds.csv -> solution_mg_four_boundaries_2049x2049_ds.png
+Plotted 3D surface solution_mg_four_boundaries_2049x2049_ds.csv -> solution_mg_four_boundaries_2049x2049_ds_3d.png
+Plotted heatmap solution_mg_four_boundaries_4097x4097_ds.csv -> solution_mg_four_boundaries_4097x4097_ds.png
+Plotted 3D surface solution_mg_four_boundaries_4097x4097_ds.csv -> solution_mg_four_boundaries_4097x4097_ds_3d.png
+Plotted heatmap solution_mg_four_boundaries_513x513.csv -> solution_mg_four_boundaries_513x513.png
+Plotted 3D surface solution_mg_four_boundaries_513x513.csv -> solution_mg_four_boundaries_513x513_3d.png
+Plotted heatmap solution_mg_four_boundaries_8193x8193_ds.csv -> solution_mg_four_boundaries_8193x8193_ds.png
+Plotted 3D surface solution_mg_four_boundaries_8193x8193_ds.csv -> solution_mg_four_boundaries_8193x8193_ds_3d.png
+Plotted heatmap solution_rbgs_257x257.csv -> solution_rbgs_257x257.png
+Plotted 3D surface solution_rbgs_257x257.csv -> solution_rbgs_257x257_3d.png
+Plotted heatmap mf_ConstRHS_Quadratic_513x513.csv -> mf_ConstRHS_Quadratic_513x513.png
+Plotted 3D surface mf_ConstRHS_Quadratic_513x513.csv -> mf_ConstRHS_Quadratic_513x513_3d.png
+Plotted heatmap mf_Exp_xy_D_513x513.csv -> mf_Exp_xy_D_513x513.png
+Plotted 3D surface mf_Exp_xy_D_513x513.csv -> mf_Exp_xy_D_513x513_3d.png
+Plotted heatmap mf_HighFreq_D_513x513.csv -> mf_HighFreq_D_513x513.png
+Plotted 3D surface mf_HighFreq_D_513x513.csv -> mf_HighFreq_D_513x513_3d.png
+Warning: empty cb range [0:0], adjusting to [-1:1]
+Plotted heatmap mf_PolyBubble_D_513x513.csv -> mf_PolyBubble_D_513x513.png
+Warning: empty z range [0:0], adjusting to [-1:1]
+Warning: empty cb range [0:0], adjusting to [-1:1]
+Plotted 3D surface mf_PolyBubble_D_513x513.csv -> mf_PolyBubble_D_513x513_3d.png
+Plotted heatmap mf_Sin3x_Sin2y_D_513x513.csv -> mf_Sin3x_Sin2y_D_513x513.png
+Plotted 3D surface mf_Sin3x_Sin2y_D_513x513.csv -> mf_Sin3x_Sin2y_D_513x513_3d.png
+Plotted heatmap mf_SinSin_Dirichlet_513x513.csv -> mf_SinSin_Dirichlet_513x513.png
+Plotted 3D surface mf_SinSin_Dirichlet_513x513.csv -> mf_SinSin_Dirichlet_513x513_3d.png
+Plotted heatmap mf_Sinx_Ey_D_513x513.csv -> mf_Sinx_Ey_D_513x513.png
+Plotted 3D surface mf_Sinx_Ey_D_513x513.csv -> mf_Sinx_Ey_D_513x513_3d.png
+Plotted heatmap suite_laplace_checker_low_high.csv -> suite_laplace_checker_low_high.png
+Plotted 3D surface suite_laplace_checker_low_high.csv -> suite_laplace_checker_low_high_3d.png
+Warning: empty cb range [1:1], adjusting to [0.99:1.01]
+Plotted heatmap suite_laplace_const_all_1.csv -> suite_laplace_const_all_1.png
+Warning: empty z range [1:1], adjusting to [0.99:1.01]
+Warning: empty cb range [1:1], adjusting to [0.99:1.01]
+Plotted 3D surface suite_laplace_const_all_1.csv -> suite_laplace_const_all_1_3d.png
+Plotted heatmap suite_laplace_left1_right0_top0_bottom0.csv -> suite_laplace_left1_right0_top0_bottom0.png
+Plotted 3D surface suite_laplace_left1_right0_top0_bottom0.csv -> suite_laplace_left1_right0_top0_bottom0_3d.png
+Plotted heatmap suite_laplace_left1_right2_top3_bottom4.csv -> suite_laplace_left1_right2_top3_bottom4.png
+Plotted 3D surface suite_laplace_left1_right2_top3_bottom4.csv -> suite_laplace_left1_right2_top3_bottom4_3d.png
+Plotted heatmap suite_laplace_right_high_only.csv -> suite_laplace_right_high_only.png
+Plotted 3D surface suite_laplace_right_high_only.csv -> suite_laplace_right_high_only_3d.png
+Warning: empty cb range [0:0], adjusting to [-1:1]
+Plotted heatmap suite_poisson_gaussian.csv -> suite_poisson_gaussian.png
+Warning: empty z range [0:0], adjusting to [-1:1]
+Warning: empty cb range [0:0], adjusting to [-1:1]
+Plotted 3D surface suite_poisson_gaussian.csv -> suite_poisson_gaussian_3d.png

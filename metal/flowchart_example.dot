@@ -1,0 +1,9 @@
+digraph LaplaceMetalSolverFlow {
+    main -> solveMultigrid;
+    solveMultigrid -> setInitial;
+    solveMultigrid -> setDirichletBC;
+    solveMultigrid -> downloadSolution;
+    solveMultigrid -> solveSingleGrid;
+    solveSingleGrid -> rbgsSmoother;
+    solveSingleGrid -> jacobiSmoother;
+}

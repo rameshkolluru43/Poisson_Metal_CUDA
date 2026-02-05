@@ -1,0 +1,377 @@
+\doxysection{Laplace\+Metal\+Solver Class Reference}
+\hypertarget{class_laplace_metal_solver}{}\label{class_laplace_metal_solver}\index{LaplaceMetalSolver@{LaplaceMetalSolver}}
+
+
+{\ttfamily \#include $<$Laplace\+Metal\+Solver.\+hpp$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc}{Desc}}
+\item 
+struct \mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level}{MGLevel}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}} \{ \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2a2ba38a7b398cfd9360591c3a1a25ba39}{Jacobi}}
+, \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2a2f2dc19fcc6d460ef83818ca6af8465e}{RBGS}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_laplace_metal_solver_aa509f395b6d5b50ab5274d3a80430269}{Laplace\+Metal\+Solver}} (const \mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc}{Desc}} \&d, const char \texorpdfstring{$\ast$}{*}metal\+\_\+path=nullptr)
+\item 
+\mbox{\hyperlink{class_laplace_metal_solver_ae197d8531e59d4f25e13c495bc5be517}{\texorpdfstring{$\sim$}{\string~}\+Laplace\+Metal\+Solver}} ()
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_aa0681732a2e5e48f6ef2bdf0942f9129}{set\+Initial}} (const std\+::vector$<$ float $>$ \&u0)
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_a108bc9a6da4161b3475a0e18c7536b62}{set\+Dirichlet\+BC}} (const std\+::vector$<$ uint8\+\_\+t $>$ \&mask, const std\+::vector$<$ float $>$ \&values)
+\item 
+bool \mbox{\hyperlink{class_laplace_metal_solver_a0dc8cbd4a1753eb67850d779692fe950}{solve\+Jacobi}} (uint32\+\_\+t max\+\_\+iters, float tol, uint32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+iters=nullptr, float \texorpdfstring{$\ast$}{*}residual\+\_\+l2=nullptr)
+\item 
+bool \mbox{\hyperlink{class_laplace_metal_solver_ab7adaffa24b5c2c3cb3bf9fe09e2f393}{solve\+RBGS}} (uint32\+\_\+t max\+\_\+iters, float tol, uint32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+iters=nullptr, float \texorpdfstring{$\ast$}{*}residual\+\_\+l2=nullptr)
+\item 
+std\+::vector$<$ float $>$ \mbox{\hyperlink{class_laplace_metal_solver_a8187789c5ab0d5f6b4b1fa4045f1e9e3}{download\+Solution}} () const
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_a0a18bf41e82611bb9d256a71230da6e0}{set\+RHS}} (const std\+::vector$<$ float $>$ \&rhs)
+\item 
+bool \mbox{\hyperlink{class_laplace_metal_solver_a67446cb9ed16069ea6623af831b6000a}{solve\+RBGSWith\+RHS}} (uint32\+\_\+t max\+\_\+iters, float tol, uint32\+\_\+t \texorpdfstring{$\ast$}{*}out\+\_\+iters=nullptr, float \texorpdfstring{$\ast$}{*}residual\+\_\+l2=nullptr)
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_ac6ac8334b67bac0474998b2bd28487ae}{set\+Clamp\+Enabled}} (bool e)
+\item 
+bool \mbox{\hyperlink{class_laplace_metal_solver_a376563eb790a902d4a6caf01b4b55d95}{clamp\+Enabled}} () const
+\item 
+\mbox{\hyperlink{class_laplace_metal_solver_a31005a255aef994da7601fd53de84b24}{Laplace\+Metal\+Solver}} (const \mbox{\hyperlink{class_laplace_metal_solver}{Laplace\+Metal\+Solver}} \&)=delete
+\item 
+\mbox{\hyperlink{class_laplace_metal_solver}{Laplace\+Metal\+Solver}} \& \mbox{\hyperlink{class_laplace_metal_solver_a161efbb49396b90638991e15d9b58663}{operator=}} (const \mbox{\hyperlink{class_laplace_metal_solver}{Laplace\+Metal\+Solver}} \&)=delete
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_ac74ba705ffd945c6f26f4074d7fa7c1b}{set\+Verbose}} (bool v)
+\item 
+bool \mbox{\hyperlink{class_laplace_metal_solver_a01a7a6c6ae36794265f807abbae0c68c}{verbose}} () const
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_ab8caf8d897cff57f8d34f53ce13f18e2}{set\+Damping}} (float w)
+\item 
+float \mbox{\hyperlink{class_laplace_metal_solver_a7a2ce357211e1227ef4d1118b86708b8}{damping}} () const
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_a79866d512710580130fcb92cd78b2941}{set\+Smoother}} (\mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}} s)
+\item 
+\mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}} \mbox{\hyperlink{class_laplace_metal_solver_a7a8ef27168d61cdf68eed70c9b35bb71}{smoother}} () const
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_ac495f83b8313d2688d6cbdb5762bc5a2}{set\+Relative\+Tolerance}} (float r)
+\item 
+float \mbox{\hyperlink{class_laplace_metal_solver_aa4e1fbfe918c79aee71862ff80bdcd18}{relative\+Tolerance}} () const
+\item 
+bool \mbox{\hyperlink{class_laplace_metal_solver_aa0c11f43c7bec51c4fa93d46e2784310}{solve\+Multigrid}} (uint32\+\_\+t max\+\_\+vcycles, float tol, uint32\+\_\+t nu1=3, uint32\+\_\+t nu2=3, uint32\+\_\+t coarse\+\_\+iters=30)
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_a5452156043e301fb4584c80d22b2b3ff}{debug\+Restrict\+Test}} ()
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_a79d47164286531e9ccc289401d2c1314}{debug\+Prolong\+Test}} ()
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_a9422ef6a21124aa92f29458f672df72a}{debug\+Residual\+Test}} ()
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_a4d02f354adecb5acf02bfb1ebd9289b3}{debug\+Jacobi\+Rhs\+Test}} ()
+\item 
+void \mbox{\hyperlink{class_laplace_metal_solver_a82790ca7573e681c8dfb61228eacddb2}{debug\+Check\+Uniforms}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level}{MGLevel}} $>$ \mbox{\hyperlink{class_laplace_metal_solver_ae6272d8034f56f29feba9058986e1812}{levels\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!Smoother@{Smoother}}
+\index{Smoother@{Smoother}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{Smoother}{Smoother}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2} 
+enum class \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Laplace\+Metal\+Solver\+::\+Smoother}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Jacobi@{Jacobi}!LaplaceMetalSolver@{LaplaceMetalSolver}}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!Jacobi@{Jacobi}}}\Hypertarget{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2a2ba38a7b398cfd9360591c3a1a25ba39}\label{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2} 
+Jacobi&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RBGS@{RBGS}!LaplaceMetalSolver@{LaplaceMetalSolver}}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!RBGS@{RBGS}}}\Hypertarget{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2a2f2dc19fcc6d460ef83818ca6af8465e}\label{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2} 
+RBGS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_laplace_metal_solver_aa509f395b6d5b50ab5274d3a80430269}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\index{LaplaceMetalSolver@{LaplaceMetalSolver}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{LaplaceMetalSolver()}{LaplaceMetalSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_aa509f395b6d5b50ab5274d3a80430269} 
+Laplace\+Metal\+Solver\+::\+Laplace\+Metal\+Solver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc}{Desc}} \&}]{d}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{metal\+\_\+path}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+\Hypertarget{class_laplace_metal_solver_ae197d8531e59d4f25e13c495bc5be517}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!````~LaplaceMetalSolver@{\texorpdfstring{$\sim$}{\string~}LaplaceMetalSolver}}
+\index{````~LaplaceMetalSolver@{\texorpdfstring{$\sim$}{\string~}LaplaceMetalSolver}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}LaplaceMetalSolver()}{\string~LaplaceMetalSolver()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_ae197d8531e59d4f25e13c495bc5be517} 
+Laplace\+Metal\+Solver\+::\texorpdfstring{$\sim$}{\string~}\+Laplace\+Metal\+Solver (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_laplace_metal_solver_a31005a255aef994da7601fd53de84b24}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\index{LaplaceMetalSolver@{LaplaceMetalSolver}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{LaplaceMetalSolver()}{LaplaceMetalSolver()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a31005a255aef994da7601fd53de84b24} 
+Laplace\+Metal\+Solver\+::\+Laplace\+Metal\+Solver (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_laplace_metal_solver}{Laplace\+Metal\+Solver}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_laplace_metal_solver_a376563eb790a902d4a6caf01b4b55d95}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!clampEnabled@{clampEnabled}}
+\index{clampEnabled@{clampEnabled}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{clampEnabled()}{clampEnabled()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a376563eb790a902d4a6caf01b4b55d95} 
+bool Laplace\+Metal\+Solver\+::clamp\+Enabled (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_laplace_metal_solver_a7a2ce357211e1227ef4d1118b86708b8}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!damping@{damping}}
+\index{damping@{damping}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{damping()}{damping()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a7a2ce357211e1227ef4d1118b86708b8} 
+float Laplace\+Metal\+Solver\+::damping (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_laplace_metal_solver_a82790ca7573e681c8dfb61228eacddb2}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!debugCheckUniforms@{debugCheckUniforms}}
+\index{debugCheckUniforms@{debugCheckUniforms}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{debugCheckUniforms()}{debugCheckUniforms()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a82790ca7573e681c8dfb61228eacddb2} 
+void Laplace\+Metal\+Solver\+::debug\+Check\+Uniforms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_laplace_metal_solver_a4d02f354adecb5acf02bfb1ebd9289b3}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!debugJacobiRhsTest@{debugJacobiRhsTest}}
+\index{debugJacobiRhsTest@{debugJacobiRhsTest}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{debugJacobiRhsTest()}{debugJacobiRhsTest()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a4d02f354adecb5acf02bfb1ebd9289b3} 
+void Laplace\+Metal\+Solver\+::debug\+Jacobi\+Rhs\+Test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_laplace_metal_solver_a79d47164286531e9ccc289401d2c1314}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!debugProlongTest@{debugProlongTest}}
+\index{debugProlongTest@{debugProlongTest}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{debugProlongTest()}{debugProlongTest()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a79d47164286531e9ccc289401d2c1314} 
+void Laplace\+Metal\+Solver\+::debug\+Prolong\+Test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_laplace_metal_solver_a9422ef6a21124aa92f29458f672df72a}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!debugResidualTest@{debugResidualTest}}
+\index{debugResidualTest@{debugResidualTest}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{debugResidualTest()}{debugResidualTest()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a9422ef6a21124aa92f29458f672df72a} 
+void Laplace\+Metal\+Solver\+::debug\+Residual\+Test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_laplace_metal_solver_a5452156043e301fb4584c80d22b2b3ff}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!debugRestrictTest@{debugRestrictTest}}
+\index{debugRestrictTest@{debugRestrictTest}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{debugRestrictTest()}{debugRestrictTest()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a5452156043e301fb4584c80d22b2b3ff} 
+void Laplace\+Metal\+Solver\+::debug\+Restrict\+Test (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_laplace_metal_solver_a8187789c5ab0d5f6b4b1fa4045f1e9e3}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!downloadSolution@{downloadSolution}}
+\index{downloadSolution@{downloadSolution}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{downloadSolution()}{downloadSolution()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a8187789c5ab0d5f6b4b1fa4045f1e9e3} 
+std\+::vector$<$ float $>$ Laplace\+Metal\+Solver\+::download\+Solution (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_a8187789c5ab0d5f6b4b1fa4045f1e9e3_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_a161efbb49396b90638991e15d9b58663}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!operator=@{operator=}}
+\index{operator=@{operator=}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a161efbb49396b90638991e15d9b58663} 
+\mbox{\hyperlink{class_laplace_metal_solver}{Laplace\+Metal\+Solver}} \& Laplace\+Metal\+Solver\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_laplace_metal_solver}{Laplace\+Metal\+Solver}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_laplace_metal_solver_aa4e1fbfe918c79aee71862ff80bdcd18}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!relativeTolerance@{relativeTolerance}}
+\index{relativeTolerance@{relativeTolerance}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{relativeTolerance()}{relativeTolerance()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_aa4e1fbfe918c79aee71862ff80bdcd18} 
+float Laplace\+Metal\+Solver\+::relative\+Tolerance (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_laplace_metal_solver_ac6ac8334b67bac0474998b2bd28487ae}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!setClampEnabled@{setClampEnabled}}
+\index{setClampEnabled@{setClampEnabled}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{setClampEnabled()}{setClampEnabled()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_ac6ac8334b67bac0474998b2bd28487ae} 
+void Laplace\+Metal\+Solver\+::set\+Clamp\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_ac6ac8334b67bac0474998b2bd28487ae_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_ab8caf8d897cff57f8d34f53ce13f18e2}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!setDamping@{setDamping}}
+\index{setDamping@{setDamping}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{setDamping()}{setDamping()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_ab8caf8d897cff57f8d34f53ce13f18e2} 
+void Laplace\+Metal\+Solver\+::set\+Damping (\begin{DoxyParamCaption}\item[{float}]{w}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_ab8caf8d897cff57f8d34f53ce13f18e2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_a108bc9a6da4161b3475a0e18c7536b62}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!setDirichletBC@{setDirichletBC}}
+\index{setDirichletBC@{setDirichletBC}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{setDirichletBC()}{setDirichletBC()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a108bc9a6da4161b3475a0e18c7536b62} 
+void Laplace\+Metal\+Solver\+::set\+Dirichlet\+BC (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint8\+\_\+t $>$ \&}]{mask}{, }\item[{const std\+::vector$<$ float $>$ \&}]{values}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_a108bc9a6da4161b3475a0e18c7536b62_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_aa0681732a2e5e48f6ef2bdf0942f9129}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!setInitial@{setInitial}}
+\index{setInitial@{setInitial}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{setInitial()}{setInitial()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_aa0681732a2e5e48f6ef2bdf0942f9129} 
+void Laplace\+Metal\+Solver\+::set\+Initial (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ float $>$ \&}]{u0}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_aa0681732a2e5e48f6ef2bdf0942f9129_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_ac495f83b8313d2688d6cbdb5762bc5a2}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!setRelativeTolerance@{setRelativeTolerance}}
+\index{setRelativeTolerance@{setRelativeTolerance}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{setRelativeTolerance()}{setRelativeTolerance()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_ac495f83b8313d2688d6cbdb5762bc5a2} 
+void Laplace\+Metal\+Solver\+::set\+Relative\+Tolerance (\begin{DoxyParamCaption}\item[{float}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_ac495f83b8313d2688d6cbdb5762bc5a2_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_a0a18bf41e82611bb9d256a71230da6e0}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!setRHS@{setRHS}}
+\index{setRHS@{setRHS}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{setRHS()}{setRHS()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a0a18bf41e82611bb9d256a71230da6e0} 
+void Laplace\+Metal\+Solver\+::set\+RHS (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ float $>$ \&}]{rhs}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_laplace_metal_solver_a0a18bf41e82611bb9d256a71230da6e0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_a79866d512710580130fcb92cd78b2941}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!setSmoother@{setSmoother}}
+\index{setSmoother@{setSmoother}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{setSmoother()}{setSmoother()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a79866d512710580130fcb92cd78b2941} 
+void Laplace\+Metal\+Solver\+::set\+Smoother (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}}}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_a79866d512710580130fcb92cd78b2941_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_ac74ba705ffd945c6f26f4074d7fa7c1b}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!setVerbose@{setVerbose}}
+\index{setVerbose@{setVerbose}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{setVerbose()}{setVerbose()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_ac74ba705ffd945c6f26f4074d7fa7c1b} 
+void Laplace\+Metal\+Solver\+::set\+Verbose (\begin{DoxyParamCaption}\item[{bool}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_ac74ba705ffd945c6f26f4074d7fa7c1b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_a7a8ef27168d61cdf68eed70c9b35bb71}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!smoother@{smoother}}
+\index{smoother@{smoother}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{smoother()}{smoother()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a7a8ef27168d61cdf68eed70c9b35bb71} 
+\mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}} Laplace\+Metal\+Solver\+::smoother (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_laplace_metal_solver_a0dc8cbd4a1753eb67850d779692fe950}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!solveJacobi@{solveJacobi}}
+\index{solveJacobi@{solveJacobi}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{solveJacobi()}{solveJacobi()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a0dc8cbd4a1753eb67850d779692fe950} 
+bool Laplace\+Metal\+Solver\+::solve\+Jacobi (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{max\+\_\+iters}{, }\item[{float}]{tol}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+iters}{ = {\ttfamily nullptr}, }\item[{float \texorpdfstring{$\ast$}{*}}]{residual\+\_\+l2}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_a0dc8cbd4a1753eb67850d779692fe950_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_aa0c11f43c7bec51c4fa93d46e2784310}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!solveMultigrid@{solveMultigrid}}
+\index{solveMultigrid@{solveMultigrid}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{solveMultigrid()}{solveMultigrid()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_aa0c11f43c7bec51c4fa93d46e2784310} 
+bool Laplace\+Metal\+Solver\+::solve\+Multigrid (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{max\+\_\+vcycles}{, }\item[{float}]{tol}{, }\item[{uint32\+\_\+t}]{nu1}{ = {\ttfamily 3}, }\item[{uint32\+\_\+t}]{nu2}{ = {\ttfamily 3}, }\item[{uint32\+\_\+t}]{coarse\+\_\+iters}{ = {\ttfamily 30}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_laplace_metal_solver_aa0c11f43c7bec51c4fa93d46e2784310_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_ab7adaffa24b5c2c3cb3bf9fe09e2f393}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!solveRBGS@{solveRBGS}}
+\index{solveRBGS@{solveRBGS}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{solveRBGS()}{solveRBGS()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_ab7adaffa24b5c2c3cb3bf9fe09e2f393} 
+bool Laplace\+Metal\+Solver\+::solve\+RBGS (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{max\+\_\+iters}{, }\item[{float}]{tol}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+iters}{ = {\ttfamily nullptr}, }\item[{float \texorpdfstring{$\ast$}{*}}]{residual\+\_\+l2}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{class_laplace_metal_solver_ab7adaffa24b5c2c3cb3bf9fe09e2f393_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_a67446cb9ed16069ea6623af831b6000a}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!solveRBGSWithRHS@{solveRBGSWithRHS}}
+\index{solveRBGSWithRHS@{solveRBGSWithRHS}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{solveRBGSWithRHS()}{solveRBGSWithRHS()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a67446cb9ed16069ea6623af831b6000a} 
+bool Laplace\+Metal\+Solver\+::solve\+RBGSWith\+RHS (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{max\+\_\+iters}{, }\item[{float}]{tol}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{out\+\_\+iters}{ = {\ttfamily nullptr}, }\item[{float \texorpdfstring{$\ast$}{*}}]{residual\+\_\+l2}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=269pt]{class_laplace_metal_solver_a67446cb9ed16069ea6623af831b6000a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_laplace_metal_solver_a01a7a6c6ae36794265f807abbae0c68c}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!verbose@{verbose}}
+\index{verbose@{verbose}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{verbose()}{verbose()}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_a01a7a6c6ae36794265f807abbae0c68c} 
+bool Laplace\+Metal\+Solver\+::verbose (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_laplace_metal_solver_ae6272d8034f56f29feba9058986e1812}\index{LaplaceMetalSolver@{LaplaceMetalSolver}!levels\_@{levels\_}}
+\index{levels\_@{levels\_}!LaplaceMetalSolver@{LaplaceMetalSolver}}
+\doxysubsubsection{\texorpdfstring{levels\_}{levels\_}}
+{\footnotesize\ttfamily \label{class_laplace_metal_solver_ae6272d8034f56f29feba9058986e1812} 
+std\+::vector$<$\mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level}{MGLevel}}$>$ Laplace\+Metal\+Solver\+::levels\+\_\+}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+metal/\mbox{\hyperlink{_laplace_metal_solver_8hpp}{Laplace\+Metal\+Solver.\+hpp}}\item 
+metal/\mbox{\hyperlink{_laplace_metal_solver__core_8mm}{Laplace\+Metal\+Solver\+\_\+core.\+mm}}\item 
+metal/\mbox{\hyperlink{_laplace_metal_solver__io_8mm}{Laplace\+Metal\+Solver\+\_\+io.\+mm}}\item 
+metal/\mbox{\hyperlink{_laplace_metal_solver__solvers_8mm}{Laplace\+Metal\+Solver\+\_\+solvers.\+mm}}\end{DoxyCompactItemize}

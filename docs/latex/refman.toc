@@ -1,0 +1,86 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Class Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Class List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Documentation}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Metal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::Desc Struct Reference}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Member Data Documentation}{5}{subsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.1}dx}{5}{subsubsection.3.1.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1.2}dy}{5}{subsubsection.3.1.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.1.3}nx}{5}{subsubsection.3.1.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.1.4}ny}{5}{subsubsection.3.1.1.4}%
+\contentsline {section}{\numberline {3.2}Laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Metal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver Class Reference}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Member Enumeration Documentation}{6}{subsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.1.1}Smoother}{6}{subsubsection.3.2.1.1}%
+\contentsline {subsection}{\numberline {3.2.2}Constructor \& Destructor Documentation}{7}{subsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.1}LaplaceMetalSolver()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{7}{subsubsection.3.2.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2.2}$\sim $LaplaceMetalSolver()}{7}{subsubsection.3.2.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.2.3}LaplaceMetalSolver()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{7}{subsubsection.3.2.2.3}%
+\contentsline {subsection}{\numberline {3.2.3}Member Function Documentation}{7}{subsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.1}clampEnabled()}{7}{subsubsection.3.2.3.1}%
+\contentsline {subsubsection}{\numberline {3.2.3.2}damping()}{7}{subsubsection.3.2.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.3.3}debugCheckUniforms()}{7}{subsubsection.3.2.3.3}%
+\contentsline {subsubsection}{\numberline {3.2.3.4}debugJacobiRhsTest()}{7}{subsubsection.3.2.3.4}%
+\contentsline {subsubsection}{\numberline {3.2.3.5}debugProlongTest()}{8}{subsubsection.3.2.3.5}%
+\contentsline {subsubsection}{\numberline {3.2.3.6}debugResidualTest()}{8}{subsubsection.3.2.3.6}%
+\contentsline {subsubsection}{\numberline {3.2.3.7}debugRestrictTest()}{8}{subsubsection.3.2.3.7}%
+\contentsline {subsubsection}{\numberline {3.2.3.8}downloadSolution()}{8}{subsubsection.3.2.3.8}%
+\contentsline {subsubsection}{\numberline {3.2.3.9}operator=()}{9}{subsubsection.3.2.3.9}%
+\contentsline {subsubsection}{\numberline {3.2.3.10}relativeTolerance()}{9}{subsubsection.3.2.3.10}%
+\contentsline {subsubsection}{\numberline {3.2.3.11}setClampEnabled()}{9}{subsubsection.3.2.3.11}%
+\contentsline {subsubsection}{\numberline {3.2.3.12}setDamping()}{9}{subsubsection.3.2.3.12}%
+\contentsline {subsubsection}{\numberline {3.2.3.13}setDirichletBC()}{10}{subsubsection.3.2.3.13}%
+\contentsline {subsubsection}{\numberline {3.2.3.14}setInitial()}{10}{subsubsection.3.2.3.14}%
+\contentsline {subsubsection}{\numberline {3.2.3.15}setRelativeTolerance()}{11}{subsubsection.3.2.3.15}%
+\contentsline {subsubsection}{\numberline {3.2.3.16}setRHS()}{12}{subsubsection.3.2.3.16}%
+\contentsline {subsubsection}{\numberline {3.2.3.17}setSmoother()}{12}{subsubsection.3.2.3.17}%
+\contentsline {subsubsection}{\numberline {3.2.3.18}setVerbose()}{13}{subsubsection.3.2.3.18}%
+\contentsline {subsubsection}{\numberline {3.2.3.19}smoother()}{13}{subsubsection.3.2.3.19}%
+\contentsline {subsubsection}{\numberline {3.2.3.20}solveJacobi()}{14}{subsubsection.3.2.3.20}%
+\contentsline {subsubsection}{\numberline {3.2.3.21}solveMultigrid()}{14}{subsubsection.3.2.3.21}%
+\contentsline {subsubsection}{\numberline {3.2.3.22}solveRBGS()}{15}{subsubsection.3.2.3.22}%
+\contentsline {subsubsection}{\numberline {3.2.3.23}solveRBGSWithRHS()}{15}{subsubsection.3.2.3.23}%
+\contentsline {subsubsection}{\numberline {3.2.3.24}verbose()}{16}{subsubsection.3.2.3.24}%
+\contentsline {subsection}{\numberline {3.2.4}Member Data Documentation}{16}{subsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.4.1}levels\_}{16}{subsubsection.3.2.4.1}%
+\contentsline {section}{\numberline {3.3}Laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Metal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}::MGLevel Struct Reference}{16}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Member Data Documentation}{17}{subsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.1}bcMask}{17}{subsubsection.3.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.3.1.2}bcVals}{17}{subsubsection.3.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.3.1.3}dx}{17}{subsubsection.3.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.3.1.4}dy}{17}{subsubsection.3.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.3.1.5}fieldBytes}{17}{subsubsection.3.3.1.5}%
+\contentsline {subsubsection}{\numberline {3.3.1.6}nx}{17}{subsubsection.3.3.1.6}%
+\contentsline {subsubsection}{\numberline {3.3.1.7}ny}{17}{subsubsection.3.3.1.7}%
+\contentsline {subsubsection}{\numberline {3.3.1.8}rhs}{17}{subsubsection.3.3.1.8}%
+\contentsline {subsubsection}{\numberline {3.3.1.9}uA}{17}{subsubsection.3.3.1.9}%
+\contentsline {subsubsection}{\numberline {3.3.1.10}uB}{17}{subsubsection.3.3.1.10}%
+\contentsline {subsubsection}{\numberline {3.3.1.11}uniforms}{17}{subsubsection.3.3.1.11}%
+\contentsline {chapter}{\numberline {4}File Documentation}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}demo.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{19}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Function Documentation}{20}{subsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.1}main()}{20}{subsubsection.4.1.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.1.2}test\_laplace\_solver\_default()}{21}{subsubsection.4.1.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.1.3}test\_laplace\_solver\_four\_boundaries()}{21}{subsubsection.4.1.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.1.4}test\_laplace\_solver\_multigrid\_default()}{22}{subsubsection.4.1.1.4}%
+\contentsline {subsubsection}{\numberline {4.1.1.5}test\_laplace\_solver\_multigrid\_four\_boundaries()}{23}{subsubsection.4.1.1.5}%
+\contentsline {subsubsection}{\numberline {4.1.1.6}test\_lid\_driven\_cavity\_laplace()}{24}{subsubsection.4.1.1.6}%
+\contentsline {subsubsection}{\numberline {4.1.1.7}test\_minimal\_grid()}{25}{subsubsection.4.1.1.7}%
+\contentsline {section}{\numberline {4.2}metal/laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}kernels.metal File Reference}{25}{section.4.2}%
+\contentsline {section}{\numberline {4.3}metal/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Metal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver.hpp File Reference}{25}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Metal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}hpp}{26}{section.4.4}%
+\contentsline {section}{\numberline {4.5}metal/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Metal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver.mm File Reference}{29}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Macro Definition Documentation}{29}{subsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.1.1}CREATE\_PIPELINE}{29}{subsubsection.4.5.1.1}%
+\contentsline {section}{\numberline {4.6}test\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Laplace\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Metal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Solver.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cpp File Reference}{30}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Macro Definition Documentation}{30}{subsection.4.6.1}%
+\contentsline {subsubsection}{\numberline {4.6.1.1}TRACE\_EXCEPTION}{30}{subsubsection.4.6.1.1}%
+\contentsline {subsection}{\numberline {4.6.2}Function Documentation}{31}{subsection.4.6.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.1}main()}{31}{subsubsection.4.6.2.1}%
+\contentsline {subsubsection}{\numberline {4.6.2.2}test\_constructor()}{31}{subsubsection.4.6.2.2}%
+\contentsline {subsubsection}{\numberline {4.6.2.3}test\_downloadSolution()}{32}{subsubsection.4.6.2.3}%
+\contentsline {subsubsection}{\numberline {4.6.2.4}test\_setDirichletBC()}{32}{subsubsection.4.6.2.4}%
+\contentsline {subsubsection}{\numberline {4.6.2.5}test\_setInitial()}{33}{subsubsection.4.6.2.5}%
+\contentsline {subsubsection}{\numberline {4.6.2.6}test\_solveJacobi()}{33}{subsubsection.4.6.2.6}%
+\contentsline {subsubsection}{\numberline {4.6.2.7}test\_solveMultigrid()}{34}{subsubsection.4.6.2.7}%

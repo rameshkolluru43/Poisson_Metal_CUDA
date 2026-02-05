@@ -1,0 +1,23 @@
+# Doxyfile for LaplaceMetalSolver
+
+PROJECT_NAME           = "LaplaceMetalSolver"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = metal/ main_laplace_demo.cpp test_LaplaceMetalSolver.cpp
+RECURSIVE              = YES
+FILE_PATTERNS          = *.cpp *.hpp *.mm *.metal
+GENERATE_HTML          = YES
+GENERATE_LATEX         = YES
+LATEX_OUTPUT           = latex
+USE_PDFLATEX           = YES
+PDF_HYPERLINKS         = YES
+LATEX_BATCHMODE        = NO
+# LATEX_SOURCE_CODE is obsolete in newer Doxygen; source code is included by default
+EXTRACT_ALL            = YES
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DOT_IMAGE_FORMAT       = png
+DOT_CLEANUP            = YES
+QUIET                  = YES
+
+# Add more options as needed for your documentation style.

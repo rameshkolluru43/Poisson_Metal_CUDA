@@ -1,0 +1,214 @@
+\doxysection{Laplace\+Metal\+Solver.\+hpp}
+\hypertarget{_laplace_metal_solver_8hpp_source}{}\label{_laplace_metal_solver_8hpp_source}\index{metal/LaplaceMetalSolver.hpp@{metal/LaplaceMetalSolver.hpp}}
+\mbox{\hyperlink{_laplace_metal_solver_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_laplace_metal_solver}{LaplaceMetalSolver}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{enum\ class}\ \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}}}
+\DoxyCodeLine{00010\ \ \ \ \ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2a2ba38a7b398cfd9360591c3a1a25ba39}{Jacobi}},}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2a2f2dc19fcc6d460ef83818ca6af8465e}{RBGS}}}
+\DoxyCodeLine{00013\ \ \ \ \ \};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc}{Desc}}}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc_aa0a3d2cb57fef6617ea3e763f9c78469}{nx}}\ =\ 0,\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc_a40893f8084bfc69c7668006beed49842}{ny}}\ =\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc_a9d31a3480ff16fdf962f97474680b8ca}{dx}}\ =\ 1.f,\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc_aade6a25fb2385d93c445024abf9cf987}{dy}}\ =\ 1.f;}
+\DoxyCodeLine{00018\ \ \ \ \ \};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level}{MGLevel}}}
+\DoxyCodeLine{00021\ \ \ \ \ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a26490616c93a991a9b8149c0e235a171}{nx}}\ =\ 0,\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_accc31939d251572a26e17d3bcfe39ea5}{ny}}\ =\ 0;}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a3b049d662e21d68591216a5460c10b44}{dx}}\ =\ 1.f,\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a54f0623c043e36ec845efbb683e140ff}{dy}}\ =\ 1.f;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Solution/correction\ ping-\/pong}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a2e36a9c3af280e98dd05eb9e10588339}{uA}}\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ current}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a7261794659569856b6693db2c18db5c5}{uB}}\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ next}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ RHS\ /\ residual\ on\ this\ level}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a37dda5acd003e4f77ad667d8c2e89d42}{rhs}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Boundary\ data\ (mask=1\ at\ domain\ boundary;\ values\ =\ nonhom\ on\ L0,\ zeros\ otherwise)}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a70e64e8738f33c1574cfb53052ec9aee}{bcMask}}\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ uint8\_t}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_aa7f6ff4a6903d44236cc6ffb1bdd0851}{bcVals}}\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ float}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Uniforms\ for\ this\ level}}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ *\mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a989e372e0c1a4411a0dd6d63b7b762e0}{uniforms}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_m_g_level_a180b00be2bb877ae44624751fc8ec2fb}{fieldBytes}}\ =\ 0;}
+\DoxyCodeLine{00035\ \ \ \ \ \};}
+\DoxyCodeLine{00036\ \ \ \ \ std::vector<MGLevel>\ \mbox{\hyperlink{class_laplace_metal_solver_ae6272d8034f56f29feba9058986e1812}{levels\_}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00039\ \textcolor{comment}{\ \ \ \ \ *\ Constructor\ for\ LaplaceMetalSolver.}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ \ *\ Initializes\ the\ solver\ with\ the\ given\ descriptor\ and\ optional\ Metal\ shader\ path.}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ \ \ \ \ *\ @param\ d\ Descriptor\ containing\ grid\ dimensions\ and\ spacing.}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ \ \ \ \ *\ @param\ metal\_path\ Optional\ path\ to\ the\ Metal\ shader\ source\ file.}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ nullptr,\ a\ default\ embedded\ shader\ will\ be\ used.}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ \ *\ @throws\ std::runtime\_error\ if\ initialization\ fails\ (e.g.,\ invalid\ parameters,}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Metal\ device\ or\ queue\ creation\ failure,\ shader\ compilation\ errors).}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_laplace_metal_solver_aa509f395b6d5b50ab5274d3a80430269}{LaplaceMetalSolver}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_laplace_metal_solver_1_1_desc}{Desc}}\ \&d,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *metal\_path\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{class_laplace_metal_solver_ae197d8531e59d4f25e13c495bc5be517}{\string~LaplaceMetalSolver}}();}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_aa0681732a2e5e48f6ef2bdf0942f9129}{setInitial}}(\textcolor{keyword}{const}\ std::vector<float>\ \&u0);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_a108bc9a6da4161b3475a0e18c7536b62}{setDirichletBC}}(\textcolor{keyword}{const}\ std::vector<uint8\_t>\ \&mask,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\ \&values);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_laplace_metal_solver_a0dc8cbd4a1753eb67850d779692fe950}{solveJacobi}}(uint32\_t\ max\_iters,\ \textcolor{keywordtype}{float}\ tol,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ *out\_iters\ =\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ *residual\_l2\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Single-\/level\ Red-\/Black\ Gauss–Seidel\ (in-\/place)\ solver.}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ Runs\ alternating\ red/black\ updates\ until\ residual\ L2\ <=\ tol\ or\ max\_iters\ reached.}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_laplace_metal_solver_ab7adaffa24b5c2c3cb3bf9fe09e2f393}{solveRBGS}}(uint32\_t\ max\_iters,\ \textcolor{keywordtype}{float}\ tol,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ *out\_iters\ =\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ *residual\_l2\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ std::vector<float>\ \mbox{\hyperlink{class_laplace_metal_solver_a8187789c5ab0d5f6b4b1fa4045f1e9e3}{downloadSolution}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{comment}{//\ Optional:\ provide\ a\ right-\/hand\ side\ f\ for\ Poisson:\ -\/∇²\ u\ =\ f}}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Copies\ data\ into\ the\ finest\ level's\ rhs\ buffer.}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_a0a18bf41e82611bb9d256a71230da6e0}{setRHS}}(\textcolor{keyword}{const}\ std::vector<float>\ \&rhs);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ Single-\/level\ Red-\/Black\ Gauss–Seidel\ solve\ with\ RHS\ (Poisson\ form).}}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Uses\ rbgs\_phase\_rhs\ kernel\ and\ stops\ when\ L2\ residual\ (rhs\ -\/\ Au)\ <=\ tol.}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_laplace_metal_solver_a67446cb9ed16069ea6623af831b6000a}{solveRBGSWithRHS}}(uint32\_t\ max\_iters,\ \textcolor{keywordtype}{float}\ tol,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ *out\_iters\ =\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ *residual\_l2\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ Toggle\ safety\ clamp\ to\ boundary\ range.\ Enable\ for\ Laplace\ (f=0).\ Disable\ for\ Poisson\ (f!=0).}}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_ac6ac8334b67bac0474998b2bd28487ae}{setClampEnabled}}(\textcolor{keywordtype}{bool}\ e)\ \{\ clampEnabled\_\ =\ e;\ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_laplace_metal_solver_a376563eb790a902d4a6caf01b4b55d95}{clampEnabled}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ clampEnabled\_;\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{class_laplace_metal_solver_a31005a255aef994da7601fd53de84b24}{LaplaceMetalSolver}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_laplace_metal_solver}{LaplaceMetalSolver}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{class_laplace_metal_solver}{LaplaceMetalSolver}}\ \&\mbox{\hyperlink{class_laplace_metal_solver_a161efbb49396b90638991e15d9b58663}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_laplace_metal_solver}{LaplaceMetalSolver}}\ \&)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Optional:\ control\ verbosity\ of\ internal\ logging\ (default:\ false)}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_ac74ba705ffd945c6f26f4074d7fa7c1b}{setVerbose}}(\textcolor{keywordtype}{bool}\ v)\ \{\ verbose\_\ =\ v;\ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_laplace_metal_solver_a01a7a6c6ae36794265f807abbae0c68c}{verbose}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ verbose\_;\ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ Optional:\ control\ Jacobi\ damping\ factor\ omega\ in\ (0,1].\ Default:\ 0.7f}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_ab8caf8d897cff57f8d34f53ce13f18e2}{setDamping}}(\textcolor{keywordtype}{float}\ w)}
+\DoxyCodeLine{00091\ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ damping\_\ =\ w;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ updateTopLevelUniforms\_();}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_laplace_metal_solver_a7a2ce357211e1227ef4d1118b86708b8}{damping}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ damping\_;\ \}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{comment}{//\ Optional:\ choose\ the\ smoother\ used\ in\ multigrid\ (default:\ Jacobi)}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_a79866d512710580130fcb92cd78b2941}{setSmoother}}(\mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}}\ s)\ \{\ smoother\_\ =\ s;\ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}}\ \mbox{\hyperlink{class_laplace_metal_solver_a7a8ef27168d61cdf68eed70c9b35bb71}{smoother}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ smoother\_;\ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{comment}{//\ Optional:\ relative\ residual\ stopping\ criterion\ for\ multigrid\ (res/res0\ <=\ relTol)}}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_ac495f83b8313d2688d6cbdb5762bc5a2}{setRelativeTolerance}}(\textcolor{keywordtype}{float}\ r)\ \{\ relTol\_\ =\ r;\ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_laplace_metal_solver_aa4e1fbfe918c79aee71862ff80bdcd18}{relativeTolerance}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ relTol\_;\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{comment}{//\ Geometric\ Multigrid\ V-\/cycle\ solver.}}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{comment}{//\ max\_vcycles:\ number\ of\ V-\/cycles}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{comment}{//\ tol:\ stop\ if\ L2\ residual\ on\ finest\ level\ <=\ tol}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{comment}{//\ nu1/nu2:\ pre/post\ relaxations\ per\ level}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ coarse\_iters:\ smoothing\ iterations\ on\ coarsest\ grid}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_laplace_metal_solver_aa0c11f43c7bec51c4fa93d46e2784310}{solveMultigrid}}(uint32\_t\ max\_vcycles,\ \textcolor{keywordtype}{float}\ tol,}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ nu1\ =\ 3,\ uint32\_t\ nu2\ =\ 3,}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ coarse\_iters\ =\ 30);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{comment}{//\ Debug:\ run\ a\ GPU\ vs\ CPU\ full-\/weighting\ restriction\ test}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//\ Fills\ the\ fine\ residual\ with\ a\ known\ pattern,\ runs\ restriction,}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{comment}{//\ and\ reports\ element-\/wise\ differences\ (max\ abs\ diff\ printed).}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_a5452156043e301fb4584c80d22b2b3ff}{debugRestrictTest}}();}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{comment}{//\ Debug:\ run\ a\ GPU\ vs\ CPU\ bilinear\ prolongation\ test}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ Fills\ a\ coarse\ correction\ with\ a\ deterministic\ pattern,\ runs\ prolongation}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ (add)\ into\ fine\ grid\ and\ compares\ GPU\ result\ against\ CPU\ bilinear\ interpolation.}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_a79d47164286531e9ccc289401d2c1314}{debugProlongTest}}();}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{//\ Debug:\ run\ a\ GPU\ vs\ CPU\ residual\ test}}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ Fills\ fine-\/level\ solution\ with\ a\ deterministic\ pattern,\ runs\ compute\_residual\_raw,}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ and\ compares\ GPU\ residuals\ to\ CPU\ finite-\/difference\ r\ =\ -\/(uxx+uyy).}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_a9422ef6a21124aa92f29458f672df72a}{debugResidualTest}}();}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{comment}{//\ Debug:\ run\ a\ GPU\ vs\ CPU\ single\ Jacobi-\/with-\/RHS\ step}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{comment}{//\ Fills\ u\_old\ and\ rhs\ with\ deterministic\ patterns,\ runs\ jacobi\_step\_rhs\ once}}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{comment}{//\ and\ compares\ GPU\ u\_new\ against\ CPU\ update\ formula.}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_a4d02f354adecb5acf02bfb1ebd9289b3}{debugJacobiRhsTest}}();}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{comment}{//\ Debug:\ print\ per-\/level\ Uniforms\ and\ verify\ coarsening\ scaling}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_laplace_metal_solver_a82790ca7573e681c8dfb61228eacddb2}{debugCheckUniforms}}();}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ *device\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ *queue\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ *lib\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoJacobi\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoResidual\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoApplyBC\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{comment}{//\ Optional\ smoother\ pipelines}}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoRBGS\_\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \textcolor{comment}{//\ rbgs\_phase\ (homogeneous)}}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoRBGSRHS\_\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ rbgs\_phase\_rhs\ (with\ RHS)}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ *bufU0\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{void}\ *bufU1\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{void}\ *bufBCMask\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keywordtype}{void}\ *bufBCVals\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ *bufR2\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordtype}{void}\ *bufUniforms\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00153\ \ \ \ \ uint32\_t\ nx\_\ =\ 0,\ ny\_\ =\ 0;}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{float}\ dx\_\ =\ 1,\ dy\_\ =\ 1;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ fieldBytes\_\ =\ 0;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//\ Extra\ pipelines\ for\ MG}}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoResidualRaw\_\ =\ \textcolor{keyword}{nullptr};\ \textcolor{comment}{//\ compute\_residual\_raw}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoRestrict\_\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \textcolor{comment}{//\ restrict\_full\_weighting}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoProlongAdd\_\ =\ \textcolor{keyword}{nullptr};\ \ \textcolor{comment}{//\ prolong\_bilinear\_add}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoJacobiRHS\_\ =\ \textcolor{keyword}{nullptr};\ \ \ \textcolor{comment}{//\ jacobi\_step\_rhs}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoZeroFloat\_\ =\ \textcolor{keyword}{nullptr};\ \ \ \textcolor{comment}{//\ set\_zero\_float}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ *psoClamp\_\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \textcolor{comment}{//\ clamp\_to\_bounds}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{bool}\ compileLibraryFromFile\_(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *,\ std::string\ \&);}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{bool}\ compileLibraryFromEmbedded\_(std::string\ \&);}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{bool}\ buildPipelines\_(std::string\ \&);}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{bool}\ ensureBuffers\_();}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{float}\ computeResidualL2\_();}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{bool}\ applyBC\_();}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{void}\ swapFields\_();}
+\DoxyCodeLine{00171\ \ \ \ \ \textcolor{keywordtype}{void}\ clampToBoundaryRange\_();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{bool}\ buildLevels\_();\ \ \ \textcolor{comment}{//\ allocate/build\ level\ hierarchy}}
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordtype}{void}\ destroyLevels\_();\ \textcolor{comment}{//\ free\ level\ buffers}}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ vcycle\_(uint32\_t\ nu1,\ uint32\_t\ nu2,\ uint32\_t\ coarse\_iters);}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordtype}{bool}\ smoothJacobi\_(\textcolor{keywordtype}{size\_t}\ lev,\ uint32\_t\ iters,\ \textcolor{keywordtype}{bool}\ use\_rhs);}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{bool}\ smoothRBGS\_(\textcolor{keywordtype}{size\_t}\ lev,\ uint32\_t\ iters,\ \textcolor{keywordtype}{bool}\ use\_rhs);}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordtype}{bool}\ computeResidual\_(\textcolor{keywordtype}{size\_t}\ lev);\ \ \ \ \ \ \ \textcolor{comment}{//\ writes\ levels\_[lev].rhs\ =\ residual}}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ restrictDown\_(\textcolor{keywordtype}{size\_t}\ lev\_from);\ \ \ \ \ \textcolor{comment}{//\ rhs\_\{l+1\}\ =\ R\ rhs\_l}}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{bool}\ prolongateAdd\_(\textcolor{keywordtype}{size\_t}\ lev\_to\_fine);\ \textcolor{comment}{//\ u\_l\ +=\ P\ e\_\{l+1\}}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{bool}\ applyBCLevel\_(\textcolor{keywordtype}{size\_t}\ lev);\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ enforce\ BCs\ on\ levels\_[lev].uA}}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{bool}\ zeroFloat\_(\textcolor{keywordtype}{void}\ *buf,\ \textcolor{keywordtype}{size\_t}\ lev);\ \ \textcolor{comment}{//\ GPU\ zero}}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{float}\ computeResidualL2WithRHS\_();\ \ \ \ \ \ \ \textcolor{comment}{//\ CPU\ reduction\ of\ ||rhs\ -\/\ A\ u||\ on\ finest\ level}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{comment}{//\ Config\ flags}}
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{bool}\ verbose\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{float}\ damping\_\ =\ 2.0f\ /\ 3.0f;}
+\DoxyCodeLine{00188\ \ \ \ \ \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2}{Smoother}}\ smoother\_\ =\ \mbox{\hyperlink{class_laplace_metal_solver_a0842ba624f730cfa98edf49e683de0e2a2ba38a7b398cfd9360591c3a1a25ba39}{Smoother::Jacobi}};}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{float}\ relTol\_\ =\ -\/1.0f;}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ Boundary\ extrema\ on\ finest\ level\ (for\ safety\ clamp)}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{float}\ bcMin\_\ =\ 0.0f;}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{float}\ bcMax\_\ =\ 0.0f;}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{bool}\ clampEnabled\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{comment}{//\ Helper\ to\ refresh\ omega\ in\ the\ top-\/level\ uniforms\ buffer}}
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{void}\ updateTopLevelUniforms\_();}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{comment}{//\ Residual\ metrics\ on\ finest\ level\ (level\ 0)}}
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{struct\ }ResidualMetrics}
+\DoxyCodeLine{00201\ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l2;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ l2\_h;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ linf;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ n;}
+\DoxyCodeLine{00206\ \ \ \ \ \};}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{bool}\ computeResidualMetrics0\_(ResidualMetrics\ \&out);}
+\DoxyCodeLine{00208\ \};}
+
+\end{DoxyCode}

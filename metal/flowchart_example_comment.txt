@@ -1,0 +1,14 @@
+/**
+ * \dot
+ * digraph LaplaceMetalSolverFlow {
+ *   main -> solveMultigrid;
+ *   solveMultigrid -> setInitial;
+ *   solveMultigrid -> setDirichletBC;
+ *   solveMultigrid -> downloadSolution;
+ *   solveMultigrid -> solveSingleGrid;
+ *   solveSingleGrid -> rbgsSmoother;
+ *   solveSingleGrid -> jacobiSmoother;
+ * }
+ * \enddot
+ */
+// Place this comment above the main solver function in your code for Doxygen to render the flow chart.

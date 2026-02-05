@@ -1,0 +1,9 @@
+<map id="test_downloadSolution" name="test_downloadSolution">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,78,158,104"/>
+<area shape="rect" id="Node000002" href="$class_laplace_metal_solver.html#a8187789c5ab0d5f6b4b1fa4045f1e9e3" title=" " alt="" coords="206,5,341,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,75,196,49,198,54,122,80"/>
+<area shape="rect" id="Node000003" href="$class_laplace_metal_solver.html#ac6ac8334b67bac0474998b2bd28487ae" title=" " alt="" coords="206,71,341,111"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,88,191,88,191,94,158,94"/>
+<area shape="rect" id="Node000004" href="$class_laplace_metal_solver.html#aa0681732a2e5e48f6ef2bdf0942f9129" title=" " alt="" coords="206,136,341,177"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="122,102,198,128,196,133,121,107"/>
+</map>

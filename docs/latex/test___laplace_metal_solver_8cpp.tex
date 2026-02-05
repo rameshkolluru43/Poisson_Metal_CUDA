@@ -1,0 +1,179 @@
+\doxysection{test\+\_\+\+Laplace\+Metal\+Solver.\+cpp File Reference}
+\hypertarget{test___laplace_metal_solver_8cpp}{}\label{test___laplace_metal_solver_8cpp}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+{\ttfamily \#include "{}metal/\+Laplace\+Metal\+Solver.\+hpp"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Include dependency graph for test\+\_\+\+Laplace\+Metal\+Solver.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test___laplace_metal_solver_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{test___laplace_metal_solver_8cpp_a55f5c8577722ded72417d6b2445d684d}{TRACE\+\_\+\+EXCEPTION}}(msg)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{test___laplace_metal_solver_8cpp_acba75a8bdc084005b14d0ab6214dc244}{test\+\_\+constructor}} ()
+\item 
+void \mbox{\hyperlink{test___laplace_metal_solver_8cpp_ad074dcc98a17f3df74f0c0f0afa9ec1c}{test\+\_\+set\+Initial}} ()
+\item 
+void \mbox{\hyperlink{test___laplace_metal_solver_8cpp_a32ff93601c5dac3aadbba06c3d205f29}{test\+\_\+set\+Dirichlet\+BC}} ()
+\item 
+void \mbox{\hyperlink{test___laplace_metal_solver_8cpp_a6b49d2e4d2d761a9f97712bae3d446b8}{test\+\_\+solve\+Jacobi}} ()
+\item 
+void \mbox{\hyperlink{test___laplace_metal_solver_8cpp_a8b809482dc36df88be872dc87808353b}{test\+\_\+download\+Solution}} ()
+\item 
+void \mbox{\hyperlink{test___laplace_metal_solver_8cpp_a3b4abf36301678289b771435d143ec5a}{test\+\_\+solve\+Multigrid}} ()
+\item 
+int \mbox{\hyperlink{test___laplace_metal_solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{test___laplace_metal_solver_8cpp_a55f5c8577722ded72417d6b2445d684d}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}!TRACE\_EXCEPTION@{TRACE\_EXCEPTION}}
+\index{TRACE\_EXCEPTION@{TRACE\_EXCEPTION}!test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+\doxysubsubsection{\texorpdfstring{TRACE\_EXCEPTION}{TRACE\_EXCEPTION}}
+{\footnotesize\ttfamily \label{test___laplace_metal_solver_8cpp_a55f5c8577722ded72417d6b2445d684d} 
+\#define TRACE\+\_\+\+EXCEPTION(\begin{DoxyParamCaption}\item[{}]{msg}{}\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::cerr\ <<\ \textcolor{stringliteral}{"{}[EXCEPTION]\ "{}}\ <<\ msg\ <<\ std::endl;}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{test___laplace_metal_solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}!main@{main}}
+\index{main@{main}!test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{test___laplace_metal_solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test___laplace_metal_solver_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test___laplace_metal_solver_8cpp_acba75a8bdc084005b14d0ab6214dc244}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}!test\_constructor@{test\_constructor}}
+\index{test\_constructor@{test\_constructor}!test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_constructor()}{test\_constructor()}}
+{\footnotesize\ttfamily \label{test___laplace_metal_solver_8cpp_acba75a8bdc084005b14d0ab6214dc244} 
+void test\+\_\+constructor (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{test___laplace_metal_solver_8cpp_acba75a8bdc084005b14d0ab6214dc244_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test___laplace_metal_solver_8cpp_a8b809482dc36df88be872dc87808353b}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}!test\_downloadSolution@{test\_downloadSolution}}
+\index{test\_downloadSolution@{test\_downloadSolution}!test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_downloadSolution()}{test\_downloadSolution()}}
+{\footnotesize\ttfamily \label{test___laplace_metal_solver_8cpp_a8b809482dc36df88be872dc87808353b} 
+void test\+\_\+download\+Solution (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{test___laplace_metal_solver_8cpp_a8b809482dc36df88be872dc87808353b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{test___laplace_metal_solver_8cpp_a8b809482dc36df88be872dc87808353b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test___laplace_metal_solver_8cpp_a32ff93601c5dac3aadbba06c3d205f29}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}!test\_setDirichletBC@{test\_setDirichletBC}}
+\index{test\_setDirichletBC@{test\_setDirichletBC}!test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_setDirichletBC()}{test\_setDirichletBC()}}
+{\footnotesize\ttfamily \label{test___laplace_metal_solver_8cpp_a32ff93601c5dac3aadbba06c3d205f29} 
+void test\+\_\+set\+Dirichlet\+BC (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{test___laplace_metal_solver_8cpp_a32ff93601c5dac3aadbba06c3d205f29_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{test___laplace_metal_solver_8cpp_a32ff93601c5dac3aadbba06c3d205f29_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test___laplace_metal_solver_8cpp_ad074dcc98a17f3df74f0c0f0afa9ec1c}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}!test\_setInitial@{test\_setInitial}}
+\index{test\_setInitial@{test\_setInitial}!test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_setInitial()}{test\_setInitial()}}
+{\footnotesize\ttfamily \label{test___laplace_metal_solver_8cpp_ad074dcc98a17f3df74f0c0f0afa9ec1c} 
+void test\+\_\+set\+Initial (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{test___laplace_metal_solver_8cpp_ad074dcc98a17f3df74f0c0f0afa9ec1c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{test___laplace_metal_solver_8cpp_ad074dcc98a17f3df74f0c0f0afa9ec1c_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test___laplace_metal_solver_8cpp_a6b49d2e4d2d761a9f97712bae3d446b8}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}!test\_solveJacobi@{test\_solveJacobi}}
+\index{test\_solveJacobi@{test\_solveJacobi}!test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_solveJacobi()}{test\_solveJacobi()}}
+{\footnotesize\ttfamily \label{test___laplace_metal_solver_8cpp_a6b49d2e4d2d761a9f97712bae3d446b8} 
+void test\+\_\+solve\+Jacobi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{test___laplace_metal_solver_8cpp_a6b49d2e4d2d761a9f97712bae3d446b8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{test___laplace_metal_solver_8cpp_a6b49d2e4d2d761a9f97712bae3d446b8_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{test___laplace_metal_solver_8cpp_a3b4abf36301678289b771435d143ec5a}\index{test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}!test\_solveMultigrid@{test\_solveMultigrid}}
+\index{test\_solveMultigrid@{test\_solveMultigrid}!test\_LaplaceMetalSolver.cpp@{test\_LaplaceMetalSolver.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_solveMultigrid()}{test\_solveMultigrid()}}
+{\footnotesize\ttfamily \label{test___laplace_metal_solver_8cpp_a3b4abf36301678289b771435d143ec5a} 
+void test\+\_\+solve\+Multigrid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{test___laplace_metal_solver_8cpp_a3b4abf36301678289b771435d143ec5a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{test___laplace_metal_solver_8cpp_a3b4abf36301678289b771435d143ec5a_icgraph}
+\end{center}
+\end{figure}
